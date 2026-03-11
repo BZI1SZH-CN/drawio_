@@ -1,0 +1,89 @@
+// 分类和集合类型定义
+ 
+export interface Collection {
+  name: string;
+  value: string;
+  category: string;
+  description?: string;
+}
+ 
+export interface Category {
+  name: string;
+  value: string;
+  description?: string;
+  collections?: Collection[];
+  subcategories?: SubCategory[];
+}
+ 
+export interface SubCategory {
+  name: string;
+  value: string;
+  description?: string;
+  collections?: Collection[];
+  subcategories?: SubCategory[];
+}
+ 
+export const categories: Category[] = [
+  {
+    name: 'RF Emission tests',
+    value: 'RE',
+    description: '',
+    collections: [
+      { name: 'RE_ALSE', value: 'RE_ALSE', category: 'RE', description: 'RF Emission Test with ALSE method' },
+      { name: 'CE_LISN', value: 'CE_LISN', category: 'RE', description: 'Conduct Emission Test with LISN' },
+      { name: 'RE_NFA', value: 'RE_NFA', category: 'RE', description: 'Near Field Antenna' }
+    ]
+  },
+  {
+    name: 'RF Immunity tests',
+    value: 'RI',
+    description: 'Regulation Implementation collections',
+    collections:[
+      { name: 'RI_ALSE', value: 'RI_ALSE', category: 'RI', description: 'RI_ALSE collection' },
+      { name: 'RI_TEM', value: 'RI_TEM', category: 'RI', description: 'RI_TEM collection' },
+      { name: 'RI_TRIPLATE', value: 'RI_TRIPLATE', category: 'RI', description: 'RI_TRIPLATE collection' },
+      { name: 'RI_REVERB', value: 'RI_REVERB', category: 'RI', description: 'RI_REVERB collection' }
+    ],
+    subcategories: [
+      {
+        name: 'RI_BCI',
+        value: 'RI_BCI',
+        description: 'RI_BCI series',
+        collections: [
+          { name: 'RI_BCI_CL', value: 'RI_BCI_CL', category: 'RI', description: 'RI_BCI_CL collection' }
+        ],
+        subcategories: [
+          {
+            name: 'RI_BCI_OL',
+            value: 'RI_BCI_OL',
+            description: 'RI_BCI_OL collection',
+            collections: [
+              { name: 'RI_BCI_OL_ISO', value: 'RI_BCI_OL_ISO', category: 'RI', description: 'RI_BCI_OL_ISO collection' },
+              { name: 'RI_BCI_OL_ML_TMC', value: 'RI_BCI_OL_ML_TMC', category: 'RI', description: 'RI_BCI_OL_ML_TMC collection' },
+              { name: 'RI_BCI_OL_SL_FMC', value: 'RI_BCI_OL_SL_FMC', category: 'RI', description: 'RI_BCI_OL_SL_FMC collection' },
+              { name: 'RI_BCI_OL_SL_TMC', value: 'RI_BCI_OL_SL_TMC', category: 'RI', description: 'RI_BCI_OL_SL_TMC collection' }
+            ]
+          }
+        ]
+      },
+      {
+        name: 'CHINA',
+        value: 'CHINA',
+        description: 'CHINA 系列',
+        collections: [
+          { name: 'RI_CHINA6_A', value: 'RI_CHINA6_A', category: 'RI', description: 'CHINA6-A collection' },
+          { name: 'RI_CHINA6_B', value: 'RI_CHINA6_B', category: 'RI', description: 'CHINA6-B collection' }
+        ]
+      }
+    ]
+  },
+  {
+    name: 'TE',
+    value: 'TE',
+    description: 'Testing Environment collections',
+    collections: [
+      { name: 'TE_LAB', value: 'TE_LAB', category: 'TE', description: 'Laboratory testing environment' },
+      { name: 'TE_ROAD', value: 'TE_ROAD', category: 'TE', description: 'Road testing environment' }
+    ]
+  }
+];
